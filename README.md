@@ -10,11 +10,44 @@ Read several directories at once asynchronously
 
 ## Summary
 
+This module is essentially a convenience wrapper for using [async](https://github.com/caolan/async) in combination with `fs.readdir`. It reads the directories you pass it and concatenates and sorts the results.
+
 ## Usage
 
+Require `readdirs` and pass an array of directories (relative to pwd, as with `fs.readdir`), optionally an options object, and a callback, and you'll get an optional error and the list of files back.
 
+The default usage returns only the file name, as readdir does.
 
-### Example
+```js
+var readdirs = require('readdirs');
+
+readdirs([__dirname + '/a', __dirname + '/b'], function(err, files) {
+  // Files is an array of file names (just as with readdir)
+});
+```
+
+But you can also request absolute paths if you need to be able to sort out which ones are in which directory.
+
+```js
+var readdirs = require('readdirs');
+
+readdirs([__dirname + '/a', __dirname + '/b'], { absolute: true }, function(err, files) {
+  // Files is an array of absolute file names
+});
+```
+
+Or you can leave the arrays unmerged (i.e. an array of arrays instead of file names).
+
+```js
+var readdirs = require('readdirs');
+
+readdirs([__dirname + '/a', __dirname + '/b'], { nested: true }, function(err, files) {
+  // Files is an array of arrays. The first array is the files in __dirname/a
+  // and the second is files in __dirname/b.
+});
+```
+
+And of course, you could combine these options as well.
 
 ## Contributing
 
