@@ -49,6 +49,8 @@ readdirs([__dirname + '/a', __dirname + '/b'], { nested: true }, function(err, f
 
 And of course, you could combine these options as well.
 
+If you want more finely grained control of the resultant file structure, you should check out [file-manifest](https://github.com/tandrewnichols/file-manifest), which can do a lot more.
+
 ## Contributing
 
 Please see [the contribution guidelines](CONTRIBUTING.md).
