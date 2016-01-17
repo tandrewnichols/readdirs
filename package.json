@@ -26,7 +26,8 @@
   },
   "homepage": "https://github.com/tandrewnichols/readdirs",
   "dependencies": {
-    "async": "^1.5.2"
+    "async": "^1.5.2",
+    "lodash": "^4.0.0"
   },
   "devDependencies": {
     "coffee-script": "^1.10.0",
