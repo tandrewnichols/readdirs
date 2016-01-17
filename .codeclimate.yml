@@ -17,4 +17,5 @@ exclude_paths:
   - "**.md"
   - "*.js"
   - "**.coffee"
+  - "**.txt"
   - "LICENSE"
