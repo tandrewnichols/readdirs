@@ -17,3 +17,7 @@ describe 'readdirs', ->
   context 'nested', ->
     When (done) -> @subject ["#{__dirname}/fixtures/a", "#{__dirname}/fixtures/b"], { nested: true }, (err, @files) => done()
     Then -> @files.should.eql [['bar.txt', 'foo.txt'], ['baz.txt', 'quux.txt']]
+
+  context 'error', ->
+    When (done) -> @subject ['foo/bar/baz'], (@err) => done()
+    Then -> @err.should.be.an.instanceOf(Error)
